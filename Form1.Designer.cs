@@ -38,6 +38,8 @@
             lblPriority = new Label();
             cmbPriority = new ComboBox();
             btnSaveAssignment = new Button();
+            dgvAssignments = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dgvAssignments).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -138,11 +140,22 @@
             btnSaveAssignment.UseWaitCursor = true;
             btnSaveAssignment.Click += btnSaveAssignment_Click;
             // 
+            // dgvAssignments
+            // 
+            dgvAssignments.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvAssignments.Location = new Point(464, 573);
+            dgvAssignments.Name = "dgvAssignments";
+            dgvAssignments.RowHeadersWidth = 62;
+            dgvAssignments.Size = new Size(935, 210);
+            dgvAssignments.TabIndex = 10;
+            dgvAssignments.UseWaitCursor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1679, 808);
+            Controls.Add(dgvAssignments);
             Controls.Add(btnSaveAssignment);
             Controls.Add(cmbPriority);
             Controls.Add(lblPriority);
@@ -157,6 +170,7 @@
             Text = "Student Study Planner and Assignment Tracker ";
             UseWaitCursor = true;
             Load += Form1_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvAssignments).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -173,5 +187,6 @@
         private Label lblPriority;
         private ComboBox cmbPriority;
         private Button btnSaveAssignment;
+        private DataGridView dgvAssignments;
     }
 }

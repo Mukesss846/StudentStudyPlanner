@@ -2,6 +2,7 @@ namespace StudentStudyPlanner
 {
     public partial class Form1 : Form
     {
+        private List<Assignment> assignments = new List<Assignment>();
         public Form1()
         {
             InitializeComponent();
@@ -39,6 +40,10 @@ namespace StudentStudyPlanner
             assignment.DueDate = dtpDueDate.Value;
             assignment.Priority = cmbPriority.Text;
             assignment.Status = "Pending";
+            
+            assignments.Add(assignment);
+            dgvAssignments.DataSource = null;
+            dgvAssignments.DataSource = assignments;
 
             MessageBox.Show("Assignment created successfully!");
         }
