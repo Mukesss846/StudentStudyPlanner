@@ -39,6 +39,10 @@
             cmbPriority = new ComboBox();
             btnSaveAssignment = new Button();
             dgvAssignments = new DataGridView();
+            btnDeleteAssignment = new Button();
+            btnEditAssignment = new Button();
+            lblStatus = new Label();
+            cmbStatus = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvAssignments).BeginInit();
             SuspendLayout();
             // 
@@ -150,11 +154,55 @@
             dgvAssignments.TabIndex = 10;
             dgvAssignments.UseWaitCursor = true;
             // 
+            // btnDeleteAssignment
+            // 
+            btnDeleteAssignment.Location = new Point(535, 812);
+            btnDeleteAssignment.Name = "btnDeleteAssignment";
+            btnDeleteAssignment.Size = new Size(286, 34);
+            btnDeleteAssignment.TabIndex = 11;
+            btnDeleteAssignment.Text = "Delete Assignment";
+            btnDeleteAssignment.UseVisualStyleBackColor = true;
+            btnDeleteAssignment.UseWaitCursor = true;
+            btnDeleteAssignment.Click += btnDeleteAssignment_Click;
+            // 
+            // btnEditAssignment
+            // 
+            btnEditAssignment.Location = new Point(891, 812);
+            btnEditAssignment.Name = "btnEditAssignment";
+            btnEditAssignment.Size = new Size(264, 34);
+            btnEditAssignment.TabIndex = 12;
+            btnEditAssignment.Text = "Edit Assignment";
+            btnEditAssignment.UseVisualStyleBackColor = true;
+            btnEditAssignment.UseWaitCursor = true;
+            btnEditAssignment.Click += btnEditAssignment_Click;
+            // 
+            // lblStatus
+            // 
+            lblStatus.AutoSize = true;
+            lblStatus.Location = new Point(566, 452);
+            lblStatus.Name = "lblStatus";
+            lblStatus.Size = new Size(64, 25);
+            lblStatus.TabIndex = 13;
+            lblStatus.Text = "Status:";
+            // 
+            // cmbStatus
+            // 
+            cmbStatus.FormattingEnabled = true;
+            cmbStatus.Items.AddRange(new object[] { "Pending ", "In Progress ", "Completed " });
+            cmbStatus.Location = new Point(647, 453);
+            cmbStatus.Name = "cmbStatus";
+            cmbStatus.Size = new Size(182, 33);
+            cmbStatus.TabIndex = 14;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1679, 808);
+            ClientSize = new Size(1814, 938);
+            Controls.Add(cmbStatus);
+            Controls.Add(lblStatus);
+            Controls.Add(btnEditAssignment);
+            Controls.Add(btnDeleteAssignment);
             Controls.Add(dgvAssignments);
             Controls.Add(btnSaveAssignment);
             Controls.Add(cmbPriority);
@@ -188,5 +236,9 @@
         private ComboBox cmbPriority;
         private Button btnSaveAssignment;
         private DataGridView dgvAssignments;
+        private Button btnDeleteAssignment;
+        private Button btnEditAssignment;
+        private Label lblStatus;
+        private ComboBox cmbStatus;
     }
 }
