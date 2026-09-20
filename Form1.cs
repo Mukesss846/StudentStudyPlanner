@@ -3,6 +3,7 @@ namespace StudentStudyPlanner
     public partial class Form1 : Form
     {
         private List<Assignment> assignments = new List<Assignment>();
+        private List<StudySession> studySessions = new List<StudySession>();
         private int editingIndex = -1;
         public Form1()
         {
@@ -82,7 +83,7 @@ namespace StudentStudyPlanner
             if (dgvAssignments.SelectedRows.Count > 0)
             {
                 int index = dgvAssignments.SelectedRows[0].Index;
-                editingIndex = index; 
+                editingIndex = index;
 
                 Assignment selectedAssignment = assignments[index];
 
@@ -95,6 +96,70 @@ namespace StudentStudyPlanner
             {
                 MessageBox.Show("Please select an assignment to edit.");
             }
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblDuration_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblStudySessions_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddStudySession_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtSessionSubject.Text) ||
+                string.IsNullOrWhiteSpace(txtDuration.Text))
+            {
+                MessageBox.Show("Please enter the session subject and duration.");
+                return;
+            }
+
+            if (!int.TryParse(txtDuration.Text, out int duration))
+            {
+                MessageBox.Show("Duration must be a number.");
+                return;
+            }
+
+            StudySession session = new StudySession();
+
+            session.Subject = txtSessionSubject.Text;
+            session.Date = dtpSessionDate.Value.Date;
+            session.StartTime = dtpStartTime.Value.TimeOfDay;
+            session.Duration = duration;
+            session.Notes = txtSessionNotes.Text;
+
+            studySessions.Add(session);
+
+            dgvStudySessions.DataSource = null;
+            dgvStudySessions.DataSource = studySessions;
+
+            MessageBox.Show("Study session added successfully!");
+        }
+
+
+
+
+        private void lblStartTime_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSubject_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSessionSubject_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
