@@ -147,6 +147,41 @@ namespace StudentStudyPlanner
         {
 
         }
+
+        private void tabAssignments_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void grpAssignmentDetails_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void grpAssignmentDetails_Enter_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSubject_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvAssignments_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void lblsubject_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
