@@ -15,14 +15,15 @@ namespace StudentStudyPlanner
         private void Form1_Load(object sender, EventArgs e)
         {
             cmbStatus.SelectedIndex = 0;   // selects the first item, "Pending"
-
+            cmbStatus.SelectedIndex = 0;
+            lblToday.Text = DateTime.Today.ToString("dddd, d MMM yyyy");
         }
 
-        
 
-      
 
-       
+
+
+
 
         private void btnSaveAssignment_Click(object sender, EventArgs e)
         {
@@ -45,7 +46,7 @@ namespace StudentStudyPlanner
             {
                 assignment.Id = assignments[editingIndex].Id;   // ADD: keep the same Id when editing
                 assignments[editingIndex] = assignment;
-                
+
 
                 MessageBox.Show("Assignment updated successfully!");
             }
@@ -99,7 +100,7 @@ namespace StudentStudyPlanner
             }
         }
 
-        
+
 
         private void btnAddStudySession_Click(object sender, EventArgs e)
         {
@@ -132,13 +133,20 @@ namespace StudentStudyPlanner
             MessageBox.Show("Study session added successfully!");
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
 
+        }
 
+        private void label2_Click(object sender, EventArgs e)
+        {
 
-       
+        }
 
-        
+        private void lblStudySessions_Click(object sender, EventArgs e)
+        {
 
         }
     }
+}
 

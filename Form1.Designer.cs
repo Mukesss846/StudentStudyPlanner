@@ -56,81 +56,92 @@
             txtSessionNotes = new TextBox();
             btnAddStudySession = new Button();
             dgvStudySessions = new DataGridView();
+            panel1 = new Panel();
+            lblToday = new Label();
+            tabControl1 = new TabControl();
+            tabAssignments = new TabPage();
+            tabStudySessions = new TabPage();
+            tabDashboard = new TabPage();
             ((System.ComponentModel.ISupportInitialize)dgvAssignments).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvStudySessions).BeginInit();
+            panel1.SuspendLayout();
+            tabControl1.SuspendLayout();
+            tabAssignments.SuspendLayout();
+            tabStudySessions.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(487, 36);
+            label1.Location = new Point(27, 0);
             label1.Name = "label1";
             label1.Size = new Size(722, 45);
             label1.TabIndex = 0;
             label1.Text = "Student Study Planner and Assignment Tracker";
             label1.UseWaitCursor = true;
+            label1.Click += label1_Click;
             // 
             // lblsubject
             // 
             lblsubject.AutoSize = true;
-            lblsubject.Location = new Point(519, 121);
+            lblsubject.Location = new Point(160, 64);
             lblsubject.Name = "lblsubject";
-            lblsubject.Size = new Size(74, 25);
+            lblsubject.Size = new Size(81, 28);
             lblsubject.TabIndex = 1;
             lblsubject.Text = "Subject:";
             lblsubject.UseWaitCursor = true;
             // 
             // txtSubject
             // 
-            txtSubject.Location = new Point(599, 121);
+            txtSubject.Location = new Point(248, 64);
             txtSubject.Name = "txtSubject";
-            txtSubject.Size = new Size(508, 31);
+            txtSubject.Size = new Size(558, 34);
             txtSubject.TabIndex = 2;
             txtSubject.UseWaitCursor = true;
             // 
             // lblAssignmentTitle
             // 
             lblAssignmentTitle.AutoSize = true;
-            lblAssignmentTitle.Location = new Point(446, 167);
+            lblAssignmentTitle.Location = new Point(80, 115);
             lblAssignmentTitle.Name = "lblAssignmentTitle";
-            lblAssignmentTitle.Size = new Size(147, 25);
+            lblAssignmentTitle.Size = new Size(160, 28);
             lblAssignmentTitle.TabIndex = 3;
             lblAssignmentTitle.Text = "Assignment Title:";
             lblAssignmentTitle.UseWaitCursor = true;
             // 
             // txtAssignmentTitle
             // 
-            txtAssignmentTitle.Location = new Point(599, 167);
+            txtAssignmentTitle.Location = new Point(248, 115);
             txtAssignmentTitle.Name = "txtAssignmentTitle";
-            txtAssignmentTitle.Size = new Size(665, 31);
+            txtAssignmentTitle.Size = new Size(731, 34);
             txtAssignmentTitle.TabIndex = 4;
             txtAssignmentTitle.UseWaitCursor = true;
             // 
             // lblDueDate
             // 
             lblDueDate.AutoSize = true;
-            lblDueDate.Location = new Point(503, 213);
+            lblDueDate.Location = new Point(142, 167);
             lblDueDate.Name = "lblDueDate";
-            lblDueDate.Size = new Size(90, 25);
+            lblDueDate.Size = new Size(97, 28);
             lblDueDate.TabIndex = 5;
             lblDueDate.Text = "Due Date:";
             lblDueDate.UseWaitCursor = true;
             // 
             // dtpDueDate
             // 
-            dtpDueDate.Location = new Point(599, 213);
+            dtpDueDate.Location = new Point(248, 167);
             dtpDueDate.Name = "dtpDueDate";
-            dtpDueDate.Size = new Size(300, 31);
+            dtpDueDate.Size = new Size(330, 34);
             dtpDueDate.TabIndex = 6;
             dtpDueDate.UseWaitCursor = true;
             // 
             // lblPriority
             // 
             lblPriority.AutoSize = true;
-            lblPriority.Location = new Point(521, 259);
+            lblPriority.Location = new Point(162, 218);
             lblPriority.Name = "lblPriority";
-            lblPriority.Size = new Size(72, 25);
+            lblPriority.Size = new Size(80, 28);
             lblPriority.TabIndex = 7;
             lblPriority.Text = "Priority:";
             lblPriority.UseWaitCursor = true;
@@ -140,17 +151,17 @@
             cmbPriority.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbPriority.FormattingEnabled = true;
             cmbPriority.Items.AddRange(new object[] { "Low ", "Medium ", "High" });
-            cmbPriority.Location = new Point(599, 259);
+            cmbPriority.Location = new Point(248, 218);
             cmbPriority.Name = "cmbPriority";
-            cmbPriority.Size = new Size(182, 33);
+            cmbPriority.Size = new Size(200, 36);
             cmbPriority.TabIndex = 8;
             cmbPriority.UseWaitCursor = true;
             // 
             // btnSaveAssignment
             // 
-            btnSaveAssignment.Location = new Point(503, 368);
+            btnSaveAssignment.Location = new Point(142, 340);
             btnSaveAssignment.Name = "btnSaveAssignment";
-            btnSaveAssignment.Size = new Size(196, 34);
+            btnSaveAssignment.Size = new Size(216, 38);
             btnSaveAssignment.TabIndex = 9;
             btnSaveAssignment.Text = "Save Assignment ";
             btnSaveAssignment.UseVisualStyleBackColor = true;
@@ -160,18 +171,18 @@
             // dgvAssignments
             // 
             dgvAssignments.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvAssignments.Location = new Point(413, 417);
+            dgvAssignments.Location = new Point(43, 395);
             dgvAssignments.Name = "dgvAssignments";
             dgvAssignments.RowHeadersWidth = 62;
-            dgvAssignments.Size = new Size(935, 151);
+            dgvAssignments.Size = new Size(1028, 169);
             dgvAssignments.TabIndex = 10;
             dgvAssignments.UseWaitCursor = true;
             // 
             // btnDeleteAssignment
             // 
-            btnDeleteAssignment.Location = new Point(956, 368);
+            btnDeleteAssignment.Location = new Point(641, 340);
             btnDeleteAssignment.Name = "btnDeleteAssignment";
-            btnDeleteAssignment.Size = new Size(199, 34);
+            btnDeleteAssignment.Size = new Size(219, 38);
             btnDeleteAssignment.TabIndex = 11;
             btnDeleteAssignment.Text = "Delete Assignment";
             btnDeleteAssignment.UseVisualStyleBackColor = true;
@@ -180,9 +191,9 @@
             // 
             // btnEditAssignment
             // 
-            btnEditAssignment.Location = new Point(729, 368);
+            btnEditAssignment.Location = new Point(391, 340);
             btnEditAssignment.Name = "btnEditAssignment";
-            btnEditAssignment.Size = new Size(198, 34);
+            btnEditAssignment.Size = new Size(218, 38);
             btnEditAssignment.TabIndex = 12;
             btnEditAssignment.Text = "Edit Assignment";
             btnEditAssignment.UseVisualStyleBackColor = true;
@@ -192,9 +203,9 @@
             // lblStatus
             // 
             lblStatus.AutoSize = true;
-            lblStatus.Location = new Point(529, 315);
+            lblStatus.Location = new Point(171, 281);
             lblStatus.Name = "lblStatus";
-            lblStatus.Size = new Size(64, 25);
+            lblStatus.Size = new Size(69, 28);
             lblStatus.TabIndex = 13;
             lblStatus.Text = "Status:";
             lblStatus.UseWaitCursor = true;
@@ -204,9 +215,9 @@
             cmbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbStatus.FormattingEnabled = true;
             cmbStatus.Items.AddRange(new object[] { "Pending ", "In Progress ", "Completed " });
-            cmbStatus.Location = new Point(599, 315);
+            cmbStatus.Location = new Point(248, 281);
             cmbStatus.Name = "cmbStatus";
-            cmbStatus.Size = new Size(182, 33);
+            cmbStatus.Size = new Size(200, 36);
             cmbStatus.TabIndex = 14;
             cmbStatus.UseWaitCursor = true;
             // 
@@ -214,55 +225,56 @@
             // 
             lblStudySessions.AutoSize = true;
             lblStudySessions.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblStudySessions.Location = new Point(413, 622);
+            lblStudySessions.Location = new Point(53, 75);
             lblStudySessions.Name = "lblStudySessions";
             lblStudySessions.Size = new Size(209, 38);
             lblStudySessions.TabIndex = 15;
             lblStudySessions.Text = "Study Sessions";
             lblStudySessions.UseWaitCursor = true;
+            lblStudySessions.Click += lblStudySessions_Click;
             // 
             // lblSessionSubject
             // 
             lblSessionSubject.AutoSize = true;
-            lblSessionSubject.Location = new Point(413, 678);
+            lblSessionSubject.Location = new Point(53, 137);
             lblSessionSubject.Name = "lblSessionSubject";
-            lblSessionSubject.Size = new Size(139, 25);
+            lblSessionSubject.Size = new Size(151, 28);
             lblSessionSubject.TabIndex = 16;
             lblSessionSubject.Text = "Session Subject:";
             lblSessionSubject.UseWaitCursor = true;
             // 
             // txtSessionSubject
             // 
-            txtSessionSubject.Location = new Point(558, 678);
+            txtSessionSubject.Location = new Point(213, 137);
             txtSessionSubject.Name = "txtSessionSubject";
-            txtSessionSubject.Size = new Size(586, 31);
+            txtSessionSubject.Size = new Size(644, 34);
             txtSessionSubject.TabIndex = 17;
             txtSessionSubject.UseWaitCursor = true;
             // 
             // lblSessionDate
             // 
             lblSessionDate.AutoSize = true;
-            lblSessionDate.Location = new Point(434, 726);
+            lblSessionDate.Location = new Point(76, 191);
             lblSessionDate.Name = "lblSessionDate";
-            lblSessionDate.Size = new Size(118, 25);
+            lblSessionDate.Size = new Size(127, 28);
             lblSessionDate.TabIndex = 18;
             lblSessionDate.Text = "Session Date:";
             lblSessionDate.UseWaitCursor = true;
             // 
             // dtpSessionDate
             // 
-            dtpSessionDate.Location = new Point(558, 726);
+            dtpSessionDate.Location = new Point(213, 191);
             dtpSessionDate.Name = "dtpSessionDate";
-            dtpSessionDate.Size = new Size(300, 31);
+            dtpSessionDate.Size = new Size(330, 34);
             dtpSessionDate.TabIndex = 19;
             dtpSessionDate.UseWaitCursor = true;
             // 
             // lblStartTime
             // 
             lblStartTime.AutoSize = true;
-            lblStartTime.Location = new Point(457, 768);
+            lblStartTime.Location = new Point(102, 238);
             lblStartTime.Name = "lblStartTime";
-            lblStartTime.Size = new Size(95, 25);
+            lblStartTime.Size = new Size(104, 28);
             lblStartTime.TabIndex = 20;
             lblStartTime.Text = "Start Time:";
             lblStartTime.UseWaitCursor = true;
@@ -270,54 +282,54 @@
             // dtpStartTime
             // 
             dtpStartTime.Format = DateTimePickerFormat.Time;
-            dtpStartTime.Location = new Point(559, 768);
+            dtpStartTime.Location = new Point(214, 238);
             dtpStartTime.Name = "dtpStartTime";
             dtpStartTime.ShowUpDown = true;
-            dtpStartTime.Size = new Size(300, 31);
+            dtpStartTime.Size = new Size(330, 34);
             dtpStartTime.TabIndex = 21;
             dtpStartTime.UseWaitCursor = true;
             // 
             // lblDuration
             // 
             lblDuration.AutoSize = true;
-            lblDuration.Location = new Point(389, 808);
+            lblDuration.Location = new Point(27, 283);
             lblDuration.Name = "lblDuration";
-            lblDuration.Size = new Size(163, 25);
+            lblDuration.Size = new Size(179, 28);
             lblDuration.TabIndex = 22;
             lblDuration.Text = "Duration (minutes):";
             lblDuration.UseWaitCursor = true;
             // 
             // txtDuration
             // 
-            txtDuration.Location = new Point(558, 808);
+            txtDuration.Location = new Point(213, 283);
             txtDuration.Name = "txtDuration";
-            txtDuration.Size = new Size(270, 31);
+            txtDuration.Size = new Size(297, 34);
             txtDuration.TabIndex = 23;
             txtDuration.UseWaitCursor = true;
             // 
             // lblNotes
             // 
             lblNotes.AutoSize = true;
-            lblNotes.Location = new Point(489, 848);
+            lblNotes.Location = new Point(137, 328);
             lblNotes.Name = "lblNotes";
-            lblNotes.Size = new Size(63, 25);
+            lblNotes.Size = new Size(68, 28);
             lblNotes.TabIndex = 24;
             lblNotes.Text = "Notes:";
             lblNotes.UseWaitCursor = true;
             // 
             // txtSessionNotes
             // 
-            txtSessionNotes.Location = new Point(559, 858);
+            txtSessionNotes.Location = new Point(214, 339);
             txtSessionNotes.Name = "txtSessionNotes";
-            txtSessionNotes.Size = new Size(296, 31);
+            txtSessionNotes.Size = new Size(325, 34);
             txtSessionNotes.TabIndex = 25;
             txtSessionNotes.UseWaitCursor = true;
             // 
             // btnAddStudySession
             // 
-            btnAddStudySession.Location = new Point(830, 910);
+            btnAddStudySession.Location = new Point(512, 397);
             btnAddStudySession.Name = "btnAddStudySession";
-            btnAddStudySession.Size = new Size(205, 34);
+            btnAddStudySession.Size = new Size(226, 38);
             btnAddStudySession.TabIndex = 26;
             btnAddStudySession.Text = "Add Study Session";
             btnAddStudySession.UseVisualStyleBackColor = true;
@@ -327,54 +339,137 @@
             // dgvStudySessions
             // 
             dgvStudySessions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvStudySessions.Location = new Point(434, 962);
+            dgvStudySessions.Location = new Point(477, 1077);
             dgvStudySessions.Name = "dgvStudySessions";
             dgvStudySessions.RowHeadersWidth = 62;
-            dgvStudySessions.Size = new Size(935, 94);
+            dgvStudySessions.Size = new Size(1028, 105);
             dgvStudySessions.TabIndex = 27;
             dgvStudySessions.UseWaitCursor = true;
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(30, 58, 95);
+            panel1.Controls.Add(lblToday);
+            panel1.Controls.Add(label1);
+            panel1.Dock = DockStyle.Top;
+            panel1.ForeColor = Color.White;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1178, 52);
+            panel1.TabIndex = 28;
+            panel1.UseWaitCursor = true;
+            // 
+            // lblToday
+            // 
+            lblToday.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblToday.AutoSize = true;
+            lblToday.BackColor = Color.Transparent;
+            lblToday.Font = new Font("Segoe UI", 11F);
+            lblToday.Location = new Point(975, 20);
+            lblToday.Name = "lblToday";
+            lblToday.Size = new Size(58, 30);
+            lblToday.TabIndex = 29;
+            lblToday.Text = "Date";
+            lblToday.UseWaitCursor = true;
+            lblToday.Click += label2_Click;
+            // 
+            // tabControl1
+            // 
+            tabControl1.Controls.Add(tabAssignments);
+            tabControl1.Controls.Add(tabStudySessions);
+            tabControl1.Controls.Add(tabDashboard);
+            tabControl1.Location = new Point(3, 58);
+            tabControl1.Name = "tabControl1";
+            tabControl1.Padding = new Point(12, 6);
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(1803, 674);
+            tabControl1.TabIndex = 29;
+            tabControl1.UseWaitCursor = true;
+            // 
+            // tabAssignments
+            // 
+            tabAssignments.Controls.Add(txtSubject);
+            tabAssignments.Controls.Add(lblsubject);
+            tabAssignments.Controls.Add(lblAssignmentTitle);
+            tabAssignments.Controls.Add(txtAssignmentTitle);
+            tabAssignments.Controls.Add(lblDueDate);
+            tabAssignments.Controls.Add(dtpDueDate);
+            tabAssignments.Controls.Add(lblPriority);
+            tabAssignments.Controls.Add(cmbPriority);
+            tabAssignments.Controls.Add(btnSaveAssignment);
+            tabAssignments.Controls.Add(dgvAssignments);
+            tabAssignments.Controls.Add(btnDeleteAssignment);
+            tabAssignments.Controls.Add(btnEditAssignment);
+            tabAssignments.Controls.Add(lblStatus);
+            tabAssignments.Controls.Add(cmbStatus);
+            tabAssignments.Location = new Point(4, 43);
+            tabAssignments.Name = "tabAssignments";
+            tabAssignments.Padding = new Padding(3);
+            tabAssignments.Size = new Size(1795, 627);
+            tabAssignments.TabIndex = 0;
+            tabAssignments.Text = "Assignments";
+            tabAssignments.UseVisualStyleBackColor = true;
+            tabAssignments.UseWaitCursor = true;
+            // 
+            // tabStudySessions
+            // 
+            tabStudySessions.Controls.Add(lblStudySessions);
+            tabStudySessions.Controls.Add(lblSessionSubject);
+            tabStudySessions.Controls.Add(txtSessionSubject);
+            tabStudySessions.Controls.Add(btnAddStudySession);
+            tabStudySessions.Controls.Add(lblSessionDate);
+            tabStudySessions.Controls.Add(txtSessionNotes);
+            tabStudySessions.Controls.Add(dtpSessionDate);
+            tabStudySessions.Controls.Add(lblNotes);
+            tabStudySessions.Controls.Add(lblStartTime);
+            tabStudySessions.Controls.Add(txtDuration);
+            tabStudySessions.Controls.Add(dtpStartTime);
+            tabStudySessions.Controls.Add(lblDuration);
+            tabStudySessions.Location = new Point(4, 40);
+            tabStudySessions.Name = "tabStudySessions";
+            tabStudySessions.Padding = new Padding(3);
+            tabStudySessions.Size = new Size(1795, 630);
+            tabStudySessions.TabIndex = 1;
+            tabStudySessions.Text = "Study Sessions";
+            tabStudySessions.UseVisualStyleBackColor = true;
+            tabStudySessions.UseWaitCursor = true;
+            // 
+            // tabDashboard
+            // 
+            tabDashboard.Location = new Point(4, 40);
+            tabDashboard.Name = "tabDashboard";
+            tabDashboard.Padding = new Padding(3);
+            tabDashboard.Size = new Size(1795, 630);
+            tabDashboard.TabIndex = 2;
+            tabDashboard.Text = "Dashboard";
+            tabDashboard.UseVisualStyleBackColor = true;
+            tabDashboard.UseWaitCursor = true;
+            // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1825, 1170);
+            BackColor = Color.FromArgb(245, 247, 250);
+            ClientSize = new Size(1178, 694);
+            Controls.Add(tabControl1);
+            Controls.Add(panel1);
             Controls.Add(dgvStudySessions);
-            Controls.Add(btnAddStudySession);
-            Controls.Add(txtSessionNotes);
-            Controls.Add(lblNotes);
-            Controls.Add(txtDuration);
-            Controls.Add(lblDuration);
-            Controls.Add(dtpStartTime);
-            Controls.Add(lblStartTime);
-            Controls.Add(dtpSessionDate);
-            Controls.Add(lblSessionDate);
-            Controls.Add(txtSessionSubject);
-            Controls.Add(lblSessionSubject);
-            Controls.Add(lblStudySessions);
-            Controls.Add(cmbStatus);
-            Controls.Add(lblStatus);
-            Controls.Add(btnEditAssignment);
-            Controls.Add(btnDeleteAssignment);
-            Controls.Add(dgvAssignments);
-            Controls.Add(btnSaveAssignment);
-            Controls.Add(cmbPriority);
-            Controls.Add(lblPriority);
-            Controls.Add(dtpDueDate);
-            Controls.Add(lblDueDate);
-            Controls.Add(txtAssignmentTitle);
-            Controls.Add(lblAssignmentTitle);
-            Controls.Add(txtSubject);
-            Controls.Add(lblsubject);
-            Controls.Add(label1);
+            Font = new Font("Segoe UI", 10F);
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Student Study Planner and Assignment Tracker ";
             UseWaitCursor = true;
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dgvAssignments).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvStudySessions).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            tabControl1.ResumeLayout(false);
+            tabAssignments.ResumeLayout(false);
+            tabAssignments.PerformLayout();
+            tabStudySessions.ResumeLayout(false);
+            tabStudySessions.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -407,5 +502,12 @@
         private TextBox txtSessionNotes;
         private Button btnAddStudySession;
         private DataGridView dgvStudySessions;
+        private Panel panel1;
+        private Label lblToday;
+        private TabControl tabControl1;
+        private TabPage tabAssignments;
+        private TabPage tabStudySessions;
+        private TabPage tabDashboard;
+        private TabPage tabPage2;
     }
 }
