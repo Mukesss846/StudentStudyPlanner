@@ -140,6 +140,7 @@
             // 
             // cmbPriority
             // 
+            cmbPriority.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbPriority.FormattingEnabled = true;
             cmbPriority.Items.AddRange(new object[] { "Low ", "Medium ", "High" });
             cmbPriority.Location = new Point(599, 259);
@@ -203,6 +204,7 @@
             // 
             // cmbStatus
             // 
+            cmbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbStatus.FormattingEnabled = true;
             cmbStatus.Items.AddRange(new object[] { "Pending ", "In Progress ", "Completed " });
             cmbStatus.Location = new Point(599, 315);
@@ -210,6 +212,7 @@
             cmbStatus.Size = new Size(182, 33);
             cmbStatus.TabIndex = 14;
             cmbStatus.UseWaitCursor = true;
+            cmbStatus.SelectedIndexChanged += cmbStatus_SelectedIndexChanged;
             // 
             // lblStudySessions
             // 
@@ -238,7 +241,7 @@
             // 
             txtSessionSubject.Location = new Point(558, 678);
             txtSessionSubject.Name = "txtSessionSubject";
-            txtSessionSubject.Size = new Size(301, 31);
+            txtSessionSubject.Size = new Size(586, 31);
             txtSessionSubject.TabIndex = 17;
             txtSessionSubject.UseWaitCursor = true;
             txtSessionSubject.TextChanged += txtSessionSubject_TextChanged;
@@ -336,7 +339,7 @@
             dgvStudySessions.Location = new Point(434, 962);
             dgvStudySessions.Name = "dgvStudySessions";
             dgvStudySessions.RowHeadersWidth = 62;
-            dgvStudySessions.Size = new Size(935, 153);
+            dgvStudySessions.Size = new Size(935, 94);
             dgvStudySessions.TabIndex = 27;
             dgvStudySessions.UseWaitCursor = true;
             // 

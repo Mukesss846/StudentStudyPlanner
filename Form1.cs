@@ -5,6 +5,8 @@ namespace StudentStudyPlanner
         private List<Assignment> assignments = new List<Assignment>();
         private List<StudySession> studySessions = new List<StudySession>();
         private int editingIndex = -1;
+        private int nextAssignmentId = 1;
+        private int nextSessionId = 1;
         public Form1()
         {
             InitializeComponent();
@@ -12,6 +14,7 @@ namespace StudentStudyPlanner
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            cmbStatus.SelectedIndex = 0;   // selects the first item, "Pending"
 
         }
 
@@ -44,16 +47,17 @@ namespace StudentStudyPlanner
             assignment.Status = cmbStatus.Text;
             if (editingIndex >= 0)
             {
+                assignment.Id = assignments[editingIndex].Id;   // ADD: keep the same Id when editing
                 assignments[editingIndex] = assignment;
-                editingIndex = -1;
+                
 
                 MessageBox.Show("Assignment updated successfully!");
             }
             else
             {
+                assignment.Id = nextAssignmentId++;             // ADD: give a new Id, then add 1
                 assignments.Add(assignment);
 
-                MessageBox.Show("Assignment created successfully!");
             }
 
             dgvAssignments.DataSource = null;
@@ -66,7 +70,7 @@ namespace StudentStudyPlanner
                 int index = dgvAssignments.SelectedRows[0].Index;
 
                 assignments.RemoveAt(index);
-
+                editingIndex = -1;   // cancel any edit in progress, since row positions have changed
                 dgvAssignments.DataSource = null;
                 dgvAssignments.DataSource = assignments;
 
@@ -91,6 +95,7 @@ namespace StudentStudyPlanner
                 txtAssignmentTitle.Text = selectedAssignment.Title;
                 dtpDueDate.Value = selectedAssignment.DueDate;
                 cmbPriority.Text = selectedAssignment.Priority;
+                cmbStatus.Text = selectedAssignment.Status;
             }
             else
             {
@@ -135,7 +140,7 @@ namespace StudentStudyPlanner
             session.StartTime = dtpStartTime.Value.TimeOfDay;
             session.Duration = duration;
             session.Notes = txtSessionNotes.Text;
-
+            session.Id = nextSessionId++;
             studySessions.Add(session);
 
             dgvStudySessions.DataSource = null;
@@ -158,6 +163,11 @@ namespace StudentStudyPlanner
         }
 
         private void txtSessionSubject_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
