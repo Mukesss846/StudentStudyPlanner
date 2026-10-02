@@ -80,7 +80,6 @@
             lblsubject.TabIndex = 1;
             lblsubject.Text = "Subject:";
             lblsubject.UseWaitCursor = true;
-            lblsubject.Click += label2_Click;
             // 
             // txtSubject
             // 
@@ -89,7 +88,6 @@
             txtSubject.Size = new Size(508, 31);
             txtSubject.TabIndex = 2;
             txtSubject.UseWaitCursor = true;
-            txtSubject.TextChanged += txtSubject_TextChanged;
             // 
             // lblAssignmentTitle
             // 
@@ -100,7 +98,6 @@
             lblAssignmentTitle.TabIndex = 3;
             lblAssignmentTitle.Text = "Assignment Title:";
             lblAssignmentTitle.UseWaitCursor = true;
-            lblAssignmentTitle.Click += label3_Click;
             // 
             // txtAssignmentTitle
             // 
@@ -212,7 +209,6 @@
             cmbStatus.Size = new Size(182, 33);
             cmbStatus.TabIndex = 14;
             cmbStatus.UseWaitCursor = true;
-            cmbStatus.SelectedIndexChanged += cmbStatus_SelectedIndexChanged;
             // 
             // lblStudySessions
             // 
@@ -224,7 +220,6 @@
             lblStudySessions.TabIndex = 15;
             lblStudySessions.Text = "Study Sessions";
             lblStudySessions.UseWaitCursor = true;
-            lblStudySessions.Click += lblStudySessions_Click;
             // 
             // lblSessionSubject
             // 
@@ -235,7 +230,6 @@
             lblSessionSubject.TabIndex = 16;
             lblSessionSubject.Text = "Session Subject:";
             lblSessionSubject.UseWaitCursor = true;
-            lblSessionSubject.Click += label2_Click_1;
             // 
             // txtSessionSubject
             // 
@@ -244,7 +238,6 @@
             txtSessionSubject.Size = new Size(586, 31);
             txtSessionSubject.TabIndex = 17;
             txtSessionSubject.UseWaitCursor = true;
-            txtSessionSubject.TextChanged += txtSessionSubject_TextChanged;
             // 
             // lblSessionDate
             // 
@@ -273,7 +266,6 @@
             lblStartTime.TabIndex = 20;
             lblStartTime.Text = "Start Time:";
             lblStartTime.UseWaitCursor = true;
-            lblStartTime.Click += lblStartTime_Click;
             // 
             // dtpStartTime
             // 
@@ -294,7 +286,6 @@
             lblDuration.TabIndex = 22;
             lblDuration.Text = "Duration (minutes):";
             lblDuration.UseWaitCursor = true;
-            lblDuration.Click += lblDuration_Click;
             // 
             // txtDuration
             // 

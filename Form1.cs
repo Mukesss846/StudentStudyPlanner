@@ -18,15 +18,11 @@ namespace StudentStudyPlanner
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
+        
 
-        }
+      
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void btnSaveAssignment_Click(object sender, EventArgs e)
         {
@@ -103,20 +99,7 @@ namespace StudentStudyPlanner
             }
         }
 
-        private void label2_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblDuration_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblStudySessions_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void btnAddStudySession_Click(object sender, EventArgs e)
         {
@@ -152,24 +135,10 @@ namespace StudentStudyPlanner
 
 
 
-        private void lblStartTime_Click(object sender, EventArgs e)
-        {
+       
 
-        }
-
-        private void txtSubject_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSessionSubject_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbStatus_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        
 
         }
     }
-}
+
