@@ -28,20 +28,26 @@ namespace StudentStudyPlanner
         private void btnSaveAssignment_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtSubject.Text) ||
-    string.IsNullOrWhiteSpace(txtAssignmentTitle.Text) ||
     string.IsNullOrWhiteSpace(cmbPriority.Text))
             {
                 MessageBox.Show("Please fill in all required fields.");
                 return;
             }
-
             Assignment assignment = new Assignment();
 
-            assignment.Subject = txtSubject.Text;
-            assignment.Title = txtAssignmentTitle.Text;
-            assignment.DueDate = dtpDueDate.Value;
-            assignment.Priority = cmbPriority.Text;
-            assignment.Status = cmbStatus.Text;
+            try
+            {
+                assignment.Subject = txtSubject.Text;
+                assignment.Title = txtAssignmentTitle.Text;
+                assignment.DueDate = dtpDueDate.Value;
+                assignment.Priority = cmbPriority.Text.Trim();
+                assignment.Status = cmbStatus.Text.Trim();
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message, "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             if (editingIndex >= 0)
             {
                 assignment.Id = assignments[editingIndex].Id;   // ADD: keep the same Id when editing
@@ -124,11 +130,20 @@ namespace StudentStudyPlanner
 
             StudySession session = new StudySession();
 
-            session.Subject = txtSessionSubject.Text;
-            session.Date = dtpSessionDate.Value.Date;
-            session.StartTime = dtpStartTime.Value.TimeOfDay;
-            session.Duration = duration;
-            session.Notes = txtSessionNotes.Text;
+            try
+            {
+                session.Subject = txtSessionSubject.Text;
+                session.Date = dtpSessionDate.Value.Date;
+                session.StartTime = dtpStartTime.Value.TimeOfDay;
+                session.Duration = duration;
+                session.Notes = txtSessionNotes.Text;
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message, "Invalid input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             session.Id = nextSessionId++;
             studySessions.Add(session);
 

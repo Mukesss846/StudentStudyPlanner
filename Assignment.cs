@@ -8,8 +8,18 @@ namespace StudentStudyPlanner
     public class Assignment : PlannerItem
     {
 
-        public string Title { get; set; } = "";
+        private string title = "";
 
+        public string Title
+        {
+            get { return title; }
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                    throw new ArgumentException("Title cannot be empty.");
+                title = value;
+            }
+        }
 
         public DateTime DueDate { get; set; }
 
