@@ -46,6 +46,7 @@ namespace StudentStudyPlanner
             {
                 assignment.Id = assignments[editingIndex].Id;   // ADD: keep the same Id when editing
                 assignments[editingIndex] = assignment;
+                editingIndex = -1;
 
 
                 MessageBox.Show("Assignment updated successfully!");
@@ -138,9 +139,9 @@ namespace StudentStudyPlanner
             MessageBox.Show("Study session added successfully!");
             MessageBox.Show("Study session added successfully!");
             RefreshUpcoming();
-        }                  
+        }
 
-        private void RefreshUpcoming()               
+        private void RefreshUpcoming()
         {
             List<PlannerItem> allItems = new List<PlannerItem>();
             allItems.AddRange(assignments);
@@ -150,6 +151,12 @@ namespace StudentStudyPlanner
             foreach (PlannerItem item in allItems)
             {
                 lstUpcoming.Items.Add(item.GetSummary());
+                int total = assignments.Count;
+                int completed = assignments.Count(a => a.Status == "Completed");
+                int percent = total == 0 ? 0 : completed * 100 / total;
+
+                lblProgress.Text = $"Completed: {completed} of {total} assignments ({percent}%)";
+                prgCompleted.Value = percent;
             }
         }
         private void FormatAssignmentGrid()
@@ -164,6 +171,11 @@ namespace StudentStudyPlanner
             dgvStudySessions.Columns["Subject"]!.DisplayIndex = 1;
             dgvStudySessions.Columns["Date"]!.DefaultCellStyle.Format = "dd MMM yyyy";
             dgvStudySessions.Columns["StartTime"]!.DefaultCellStyle.Format = @"hh\:mm";
+        }
+
+        private void lblProgress_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

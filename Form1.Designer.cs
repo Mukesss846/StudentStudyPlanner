@@ -64,6 +64,9 @@
             grpSessionDetails = new GroupBox();
             tabDashboard = new TabPage();
             lstUpcoming = new ListBox();
+            panel2 = new Panel();
+            prgCompleted = new ProgressBar();
+            lblProgress = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvAssignments).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvStudySessions).BeginInit();
             panel1.SuspendLayout();
@@ -73,6 +76,7 @@
             tabStudySessions.SuspendLayout();
             grpSessionDetails.SuspendLayout();
             tabDashboard.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -222,7 +226,7 @@
             // 
             cmbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbStatus.FormattingEnabled = true;
-            cmbStatus.Items.AddRange(new object[] { "Pending ", "In Progress ", "Completed " });
+            cmbStatus.Items.AddRange(new object[] { "Pending ", "In Progress ", "Completed" });
             cmbStatus.Location = new Point(241, 250);
             cmbStatus.Name = "cmbStatus";
             cmbStatus.Size = new Size(200, 36);
@@ -426,10 +430,10 @@
             // tabStudySessions
             // 
             tabStudySessions.Controls.Add(grpSessionDetails);
-            tabStudySessions.Location = new Point(4, 43);
+            tabStudySessions.Location = new Point(4, 40);
             tabStudySessions.Name = "tabStudySessions";
             tabStudySessions.Padding = new Padding(3);
-            tabStudySessions.Size = new Size(1795, 627);
+            tabStudySessions.Size = new Size(1795, 630);
             tabStudySessions.TabIndex = 1;
             tabStudySessions.Text = "Study Sessions";
             tabStudySessions.UseVisualStyleBackColor = true;
@@ -452,7 +456,7 @@
             grpSessionDetails.Dock = DockStyle.Left;
             grpSessionDetails.Location = new Point(3, 3);
             grpSessionDetails.Name = "grpSessionDetails";
-            grpSessionDetails.Size = new Size(1156, 621);
+            grpSessionDetails.Size = new Size(1156, 624);
             grpSessionDetails.TabIndex = 27;
             grpSessionDetails.TabStop = false;
             grpSessionDetails.Text = "Study session details";
@@ -461,10 +465,11 @@
             // tabDashboard
             // 
             tabDashboard.Controls.Add(lstUpcoming);
-            tabDashboard.Location = new Point(4, 40);
+            tabDashboard.Controls.Add(panel2);
+            tabDashboard.Location = new Point(4, 43);
             tabDashboard.Name = "tabDashboard";
             tabDashboard.Padding = new Padding(3);
-            tabDashboard.Size = new Size(1795, 630);
+            tabDashboard.Size = new Size(1795, 627);
             tabDashboard.TabIndex = 2;
             tabDashboard.Text = "Dashboard";
             tabDashboard.UseVisualStyleBackColor = true;
@@ -475,11 +480,43 @@
             lstUpcoming.Dock = DockStyle.Fill;
             lstUpcoming.Font = new Font("Segoe UI", 11F);
             lstUpcoming.FormattingEnabled = true;
-            lstUpcoming.Location = new Point(3, 3);
+            lstUpcoming.Location = new Point(3, 93);
             lstUpcoming.Name = "lstUpcoming";
-            lstUpcoming.Size = new Size(1789, 624);
+            lstUpcoming.Size = new Size(1789, 531);
             lstUpcoming.TabIndex = 0;
             lstUpcoming.UseWaitCursor = true;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.White;
+            panel2.Controls.Add(prgCompleted);
+            panel2.Controls.Add(lblProgress);
+            panel2.Dock = DockStyle.Top;
+            panel2.Location = new Point(3, 3);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1789, 90);
+            panel2.TabIndex = 1;
+            panel2.UseWaitCursor = true;
+            // 
+            // prgCompleted
+            // 
+            prgCompleted.Location = new Point(15, 48);
+            prgCompleted.Name = "prgCompleted";
+            prgCompleted.Size = new Size(450, 22);
+            prgCompleted.TabIndex = 1;
+            prgCompleted.UseWaitCursor = true;
+            // 
+            // lblProgress
+            // 
+            lblProgress.AutoSize = true;
+            lblProgress.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblProgress.Location = new Point(15, 12);
+            lblProgress.Name = "lblProgress";
+            lblProgress.Size = new Size(218, 32);
+            lblProgress.TabIndex = 0;
+            lblProgress.Text = "Completed: 0 of 0";
+            lblProgress.UseWaitCursor = true;
+            lblProgress.Click += lblProgress_Click;
             // 
             // Form1
             // 
@@ -507,6 +544,8 @@
             grpSessionDetails.ResumeLayout(false);
             grpSessionDetails.PerformLayout();
             tabDashboard.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -549,5 +588,8 @@
         private GroupBox grpAssignmentDetails;
         private GroupBox grpSessionDetails;
         private ListBox lstUpcoming;
+        private Panel panel2;
+        private ProgressBar prgCompleted;
+        private Label lblProgress;
     }
 }
