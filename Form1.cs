@@ -1,3 +1,4 @@
+using System.Text.Json;
 namespace StudentStudyPlanner
 {
     public partial class Form1 : Form
@@ -7,6 +8,9 @@ namespace StudentStudyPlanner
         private int editingIndex = -1;
         private int nextAssignmentId = 1;
         private int nextSessionId = 1;
+        private DataStorage storage = new DataStorage();
+        private const string AssignmentsFile = "assignments.json";
+        private const string SessionsFile = "sessions.json";
         public Form1()
         {
             InitializeComponent();
@@ -14,9 +18,30 @@ namespace StudentStudyPlanner
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            cmbStatus.SelectedIndex = 0;   // selects the first item, "Pending"
             cmbStatus.SelectedIndex = 0;
             lblToday.Text = DateTime.Today.ToString("dddd, d MMM yyyy");
+            try
+            {
+                assignments = storage.Load<Assignment>(AssignmentsFile);
+                studySessions = storage.Load<StudySession>(SessionsFile);
+            }
+            catch (JsonException)
+            {
+                MessageBox.Show("Saved data is corrupted. Starting with empty lists.", "Load error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show("Could not read saved data: " + ex.Message, "Load error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            if (assignments.Count > 0) nextAssignmentId = assignments.Max(a => a.Id) + 1;
+            if (studySessions.Count > 0) nextSessionId = studySessions.Max(s => s.Id) + 1;
+
+            dgvAssignments.DataSource = assignments;
+            FormatAssignmentGrid();
+            dgvStudySessions.DataSource = studySessions;
+            FormatSessionGrid();
+            RefreshUpcoming();
         }
 
 
@@ -50,7 +75,7 @@ namespace StudentStudyPlanner
             }
             if (editingIndex >= 0)
             {
-                assignment.Id = assignments[editingIndex].Id;   // ADD: keep the same Id when editing
+                assignment.Id = assignments[editingIndex].Id;   
                 assignments[editingIndex] = assignment;
                 editingIndex = -1;
 
@@ -59,7 +84,7 @@ namespace StudentStudyPlanner
             }
             else
             {
-                assignment.Id = nextAssignmentId++;             // ADD: give a new Id, then add 1
+                assignment.Id = nextAssignmentId++;            
                 assignments.Add(assignment);
 
             }
@@ -68,6 +93,7 @@ namespace StudentStudyPlanner
             dgvAssignments.DataSource = assignments;
             FormatAssignmentGrid();
             RefreshUpcoming();
+            SaveData();
         }
         private void btnDeleteAssignment_Click(object sender, EventArgs e)
         {
@@ -76,11 +102,12 @@ namespace StudentStudyPlanner
                 int index = dgvAssignments.SelectedRows[0].Index;
 
                 assignments.RemoveAt(index);
-                editingIndex = -1;   // cancel any edit in progress, since row positions have changed
+                editingIndex = -1; 
                 dgvAssignments.DataSource = null;
                 dgvAssignments.DataSource = assignments;
                 FormatAssignmentGrid();
                 RefreshUpcoming();
+                SaveData();
 
                 MessageBox.Show("Assignment deleted successfully!");
             }
@@ -154,6 +181,7 @@ namespace StudentStudyPlanner
             MessageBox.Show("Study session added successfully!");
             MessageBox.Show("Study session added successfully!");
             RefreshUpcoming();
+            SaveData();
         }
 
         private void RefreshUpcoming()
@@ -188,12 +216,24 @@ namespace StudentStudyPlanner
             dgvStudySessions.Columns["StartTime"]!.DefaultCellStyle.Format = @"hh\:mm";
         }
 
-        private void lblProgress_Click(object sender, EventArgs e)
+        private void SaveData()
         {
+            try
+            {
+                storage.Save(assignments, AssignmentsFile);
+                storage.Save(studySessions, SessionsFile);
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show("Could not save data: " + ex.Message, "Save error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        
 
         }
     }
-}
+
 
 
 

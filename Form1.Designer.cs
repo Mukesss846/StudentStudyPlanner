@@ -516,7 +516,6 @@
             lblProgress.TabIndex = 0;
             lblProgress.Text = "Completed: 0 of 0";
             lblProgress.UseWaitCursor = true;
-            lblProgress.Click += lblProgress_Click;
             // 
             // Form1
             // 
