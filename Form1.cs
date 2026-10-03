@@ -59,6 +59,8 @@ namespace StudentStudyPlanner
 
             dgvAssignments.DataSource = null;
             dgvAssignments.DataSource = assignments;
+            FormatAssignmentGrid();
+            RefreshUpcoming();
         }
         private void btnDeleteAssignment_Click(object sender, EventArgs e)
         {
@@ -70,6 +72,8 @@ namespace StudentStudyPlanner
                 editingIndex = -1;   // cancel any edit in progress, since row positions have changed
                 dgvAssignments.DataSource = null;
                 dgvAssignments.DataSource = assignments;
+                FormatAssignmentGrid();
+                RefreshUpcoming();
 
                 MessageBox.Show("Assignment deleted successfully!");
             }
@@ -129,59 +133,46 @@ namespace StudentStudyPlanner
 
             dgvStudySessions.DataSource = null;
             dgvStudySessions.DataSource = studySessions;
+            FormatSessionGrid();
 
             MessageBox.Show("Study session added successfully!");
-        }
+            MessageBox.Show("Study session added successfully!");
+            RefreshUpcoming();
+        }                  
 
-        private void label1_Click(object sender, EventArgs e)
+        private void RefreshUpcoming()               
         {
+            List<PlannerItem> allItems = new List<PlannerItem>();
+            allItems.AddRange(assignments);
+            allItems.AddRange(studySessions);
 
+            lstUpcoming.Items.Clear();
+            foreach (PlannerItem item in allItems)
+            {
+                lstUpcoming.Items.Add(item.GetSummary());
+            }
         }
-
-        private void label2_Click(object sender, EventArgs e)
+        private void FormatAssignmentGrid()
         {
-
+            dgvAssignments.Columns["Id"]!.DisplayIndex = 0;
+            dgvAssignments.Columns["Subject"]!.DisplayIndex = 1;
+            dgvAssignments.Columns["DueDate"]!.DefaultCellStyle.Format = "dd MMM yyyy";
         }
-
-        private void lblStudySessions_Click(object sender, EventArgs e)
+        private void FormatSessionGrid()
         {
-
-        }
-
-        private void tabAssignments_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void grpAssignmentDetails_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void grpAssignmentDetails_Enter_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSubject_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvAssignments_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void lblsubject_Click(object sender, EventArgs e)
-        {
-
+            dgvStudySessions.Columns["Id"]!.DisplayIndex = 0;
+            dgvStudySessions.Columns["Subject"]!.DisplayIndex = 1;
+            dgvStudySessions.Columns["Date"]!.DefaultCellStyle.Format = "dd MMM yyyy";
+            dgvStudySessions.Columns["StartTime"]!.DefaultCellStyle.Format = @"hh\:mm";
         }
     }
 }
+
+
+
+
+
+
+
+
 

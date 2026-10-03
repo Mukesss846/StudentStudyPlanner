@@ -63,6 +63,7 @@
             tabStudySessions = new TabPage();
             grpSessionDetails = new GroupBox();
             tabDashboard = new TabPage();
+            lstUpcoming = new ListBox();
             ((System.ComponentModel.ISupportInitialize)dgvAssignments).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvStudySessions).BeginInit();
             panel1.SuspendLayout();
@@ -71,6 +72,7 @@
             grpAssignmentDetails.SuspendLayout();
             tabStudySessions.SuspendLayout();
             grpSessionDetails.SuspendLayout();
+            tabDashboard.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -83,7 +85,6 @@
             label1.TabIndex = 0;
             label1.Text = "Student Study Planner and Assignment Tracker";
             label1.UseWaitCursor = true;
-            label1.Click += label1_Click;
             // 
             // lblsubject
             // 
@@ -94,7 +95,6 @@
             lblsubject.TabIndex = 1;
             lblsubject.Text = "Subject:";
             lblsubject.UseWaitCursor = true;
-            lblsubject.Click += lblsubject_Click;
             // 
             // txtSubject
             // 
@@ -103,7 +103,6 @@
             txtSubject.Size = new Size(345, 34);
             txtSubject.TabIndex = 2;
             txtSubject.UseWaitCursor = true;
-            txtSubject.TextChanged += txtSubject_TextChanged;
             // 
             // lblAssignmentTitle
             // 
@@ -186,7 +185,6 @@
             dgvAssignments.Size = new Size(966, 158);
             dgvAssignments.TabIndex = 10;
             dgvAssignments.UseWaitCursor = true;
-            dgvAssignments.CellContentClick += dgvAssignments_CellContentClick;
             // 
             // btnDeleteAssignment
             // 
@@ -374,7 +372,6 @@
             lblToday.TabIndex = 29;
             lblToday.Text = "Date";
             lblToday.UseWaitCursor = true;
-            lblToday.Click += label2_Click;
             // 
             // tabControl1
             // 
@@ -400,7 +397,6 @@
             tabAssignments.TabIndex = 0;
             tabAssignments.Text = "Assignments";
             tabAssignments.UseWaitCursor = true;
-            tabAssignments.Click += tabAssignments_Click;
             // 
             // grpAssignmentDetails
             // 
@@ -426,7 +422,6 @@
             grpAssignmentDetails.TabStop = false;
             grpAssignmentDetails.Text = "Assignment details";
             grpAssignmentDetails.UseWaitCursor = true;
-            grpAssignmentDetails.Enter += grpAssignmentDetails_Enter_1;
             // 
             // tabStudySessions
             // 
@@ -462,10 +457,10 @@
             grpSessionDetails.TabStop = false;
             grpSessionDetails.Text = "Study session details";
             grpSessionDetails.UseWaitCursor = true;
-            grpSessionDetails.Enter += groupBox1_Enter;
             // 
             // tabDashboard
             // 
+            tabDashboard.Controls.Add(lstUpcoming);
             tabDashboard.Location = new Point(4, 40);
             tabDashboard.Name = "tabDashboard";
             tabDashboard.Padding = new Padding(3);
@@ -474,6 +469,17 @@
             tabDashboard.Text = "Dashboard";
             tabDashboard.UseVisualStyleBackColor = true;
             tabDashboard.UseWaitCursor = true;
+            // 
+            // lstUpcoming
+            // 
+            lstUpcoming.Dock = DockStyle.Fill;
+            lstUpcoming.Font = new Font("Segoe UI", 11F);
+            lstUpcoming.FormattingEnabled = true;
+            lstUpcoming.Location = new Point(3, 3);
+            lstUpcoming.Name = "lstUpcoming";
+            lstUpcoming.Size = new Size(1789, 624);
+            lstUpcoming.TabIndex = 0;
+            lstUpcoming.UseWaitCursor = true;
             // 
             // Form1
             // 
@@ -500,6 +506,7 @@
             tabStudySessions.ResumeLayout(false);
             grpSessionDetails.ResumeLayout(false);
             grpSessionDetails.PerformLayout();
+            tabDashboard.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -541,5 +548,6 @@
         private TabPage tabPage2;
         private GroupBox grpAssignmentDetails;
         private GroupBox grpSessionDetails;
+        private ListBox lstUpcoming;
     }
 }
