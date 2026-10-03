@@ -4,11 +4,9 @@ using System.Text;
 
 namespace StudentStudyPlanner
 {
-    public class StudySession
+    public class StudySession : PlannerItem
     {
-        public int Id { get; set; }
 
-        public string Subject { get; set; } = "";
 
         public DateTime Date { get; set; }
 
@@ -17,5 +15,12 @@ namespace StudentStudyPlanner
         public int Duration { get; set; }
 
         public string Notes { get; set; } = "";
+        public override string GetSummary()
+        {
+            string time = StartTime.ToString(@"hh\:mm");
+            return $"[Study] {Subject}, {Date:dd MMM} {time}, {Duration} min";
+
+
+        }
     }
 }
