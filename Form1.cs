@@ -75,7 +75,7 @@ namespace StudentStudyPlanner
             }
             if (editingIndex >= 0)
             {
-                assignment.Id = assignments[editingIndex].Id;   
+                assignment.Id = assignments[editingIndex].Id;
                 assignments[editingIndex] = assignment;
                 editingIndex = -1;
 
@@ -84,7 +84,7 @@ namespace StudentStudyPlanner
             }
             else
             {
-                assignment.Id = nextAssignmentId++;            
+                assignment.Id = nextAssignmentId++;
                 assignments.Add(assignment);
 
             }
@@ -101,10 +101,10 @@ namespace StudentStudyPlanner
             {
                 int index = dgvAssignments.SelectedRows[0].Index;
 
-                assignments.RemoveAt(index);
-                editingIndex = -1; 
-                dgvAssignments.DataSource = null;
-                dgvAssignments.DataSource = assignments;
+                dgvAssignments.DataSource = null;            // 1. disconnect first
+                assignments.RemoveAt(index);                 // 2. then remove
+                editingIndex = -1;
+                dgvAssignments.DataSource = assignments;     // 3. reconnect
                 FormatAssignmentGrid();
                 RefreshUpcoming();
                 SaveData();
@@ -229,11 +229,28 @@ namespace StudentStudyPlanner
             }
         }
 
-        
+        private void btnDeleteStudySession_Click(object sender, EventArgs e)
+        {
+            if (dgvStudySessions.SelectedRows.Count > 0)
+            {
+                int index = dgvStudySessions.SelectedRows[0].Index;
 
+                dgvStudySessions.DataSource = null;          // 1. disconnect first
+                studySessions.RemoveAt(index);               // 2. then remove
+                dgvStudySessions.DataSource = studySessions; // 3. reconnect
+                FormatSessionGrid();
+                RefreshUpcoming();
+                SaveData();
+
+                MessageBox.Show("Study session deleted successfully!");
+            }
+            else
+            {
+                MessageBox.Show("Please select a study session to delete.");
+            }
         }
     }
-
+}
 
 
 

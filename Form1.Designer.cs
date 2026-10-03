@@ -62,6 +62,7 @@
             grpAssignmentDetails = new GroupBox();
             tabStudySessions = new TabPage();
             grpSessionDetails = new GroupBox();
+            btnDeleteStudySession = new Button();
             tabDashboard = new TabPage();
             lstUpcoming = new ListBox();
             panel2 = new Panel();
@@ -331,7 +332,7 @@
             // 
             // btnAddStudySession
             // 
-            btnAddStudySession.Location = new Point(501, 316);
+            btnAddStudySession.Location = new Point(239, 313);
             btnAddStudySession.Name = "btnAddStudySession";
             btnAddStudySession.Size = new Size(226, 38);
             btnAddStudySession.TabIndex = 26;
@@ -347,6 +348,7 @@
             dgvStudySessions.Location = new Point(6, 377);
             dgvStudySessions.Name = "dgvStudySessions";
             dgvStudySessions.RowHeadersWidth = 62;
+            dgvStudySessions.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvStudySessions.Size = new Size(1028, 105);
             dgvStudySessions.TabIndex = 27;
             dgvStudySessions.UseWaitCursor = true;
@@ -430,10 +432,10 @@
             // tabStudySessions
             // 
             tabStudySessions.Controls.Add(grpSessionDetails);
-            tabStudySessions.Location = new Point(4, 40);
+            tabStudySessions.Location = new Point(4, 43);
             tabStudySessions.Name = "tabStudySessions";
             tabStudySessions.Padding = new Padding(3);
-            tabStudySessions.Size = new Size(1795, 630);
+            tabStudySessions.Size = new Size(1795, 627);
             tabStudySessions.TabIndex = 1;
             tabStudySessions.Text = "Study Sessions";
             tabStudySessions.UseVisualStyleBackColor = true;
@@ -441,6 +443,7 @@
             // 
             // grpSessionDetails
             // 
+            grpSessionDetails.Controls.Add(btnDeleteStudySession);
             grpSessionDetails.Controls.Add(dgvStudySessions);
             grpSessionDetails.Controls.Add(lblDuration);
             grpSessionDetails.Controls.Add(lblSessionSubject);
@@ -456,20 +459,31 @@
             grpSessionDetails.Dock = DockStyle.Left;
             grpSessionDetails.Location = new Point(3, 3);
             grpSessionDetails.Name = "grpSessionDetails";
-            grpSessionDetails.Size = new Size(1156, 624);
+            grpSessionDetails.Size = new Size(1156, 621);
             grpSessionDetails.TabIndex = 27;
             grpSessionDetails.TabStop = false;
             grpSessionDetails.Text = "Study session details";
             grpSessionDetails.UseWaitCursor = true;
             // 
+            // btnDeleteStudySession
+            // 
+            btnDeleteStudySession.Location = new Point(504, 317);
+            btnDeleteStudySession.Name = "btnDeleteStudySession";
+            btnDeleteStudySession.Size = new Size(302, 34);
+            btnDeleteStudySession.TabIndex = 28;
+            btnDeleteStudySession.Text = "Delete Study Session";
+            btnDeleteStudySession.UseVisualStyleBackColor = true;
+            btnDeleteStudySession.UseWaitCursor = true;
+            btnDeleteStudySession.Click += btnDeleteStudySession_Click;
+            // 
             // tabDashboard
             // 
             tabDashboard.Controls.Add(lstUpcoming);
             tabDashboard.Controls.Add(panel2);
-            tabDashboard.Location = new Point(4, 43);
+            tabDashboard.Location = new Point(4, 40);
             tabDashboard.Name = "tabDashboard";
             tabDashboard.Padding = new Padding(3);
-            tabDashboard.Size = new Size(1795, 627);
+            tabDashboard.Size = new Size(1795, 630);
             tabDashboard.TabIndex = 2;
             tabDashboard.Text = "Dashboard";
             tabDashboard.UseVisualStyleBackColor = true;
@@ -482,7 +496,7 @@
             lstUpcoming.FormattingEnabled = true;
             lstUpcoming.Location = new Point(3, 93);
             lstUpcoming.Name = "lstUpcoming";
-            lstUpcoming.Size = new Size(1789, 531);
+            lstUpcoming.Size = new Size(1789, 534);
             lstUpcoming.TabIndex = 0;
             lstUpcoming.UseWaitCursor = true;
             // 
@@ -590,5 +604,6 @@
         private Panel panel2;
         private ProgressBar prgCompleted;
         private Label lblProgress;
+        private Button btnDeleteStudySession;
     }
 }
